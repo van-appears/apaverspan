@@ -1,0 +1,1 @@
+This folder is where images are generated, but these will not be uploaded to this repository

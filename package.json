@@ -1,0 +1,29 @@
+{
+  "name": "apaverspan",
+  "version": "0.0.1",
+  "description": "Image generation and processing",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/van-appears/apaverspan.git"
+  },
+  "keywords": [
+    "generated",
+    "images"
+  ],
+  "scripts": {
+    "prettier": "node_modules/.bin/prettier --write src/**"
+  },
+  "author": "Van Appears",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/van-appears/apaverspan/issues"
+  },
+  "homepage": "https://github.com/van-appears/apaverspan#readme",
+  "dependencies": {
+    "alea": "^1.0.1",
+    "pngjs": "^6.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.4.1"
+  }
+}

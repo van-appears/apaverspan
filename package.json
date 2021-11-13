@@ -21,6 +21,7 @@
   "homepage": "https://github.com/van-appears/apaverspan#readme",
   "dependencies": {
     "alea": "^1.0.1",
+    "color-convert": "^2.0.1",
     "pngjs": "^6.0.0"
   },
   "devDependencies": {

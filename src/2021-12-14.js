@@ -4,18 +4,19 @@ const img = emptyData();
 const { width, height } = img;
 const allColours = collectColours({
   img: loadImg("flowers1.png"),
-  mode: "row"
+  mode: "column"
 });
 
 const pair = (x, y) => [
-  allColours[y][x],
-  allColours[x][y],
-  allColours[height-1-y][x],
-  allColours[x][height-1-y],
-  allColours[y][width-1-x],
-  allColours[width-1-x][y],
-  allColours[height-1-y][width-1-x],
-  //allColours[width-1-x][height-1-y]
+  allColours[x][y],                  // original
+  allColours[y][width-1-x],          // rotate 90 clockwise
+  allColours[width-1-x][height-1-y], // rotate 180 clockwise
+  allColours[height-1-y][x],         // rotate 270 clockwise
+
+  allColours[width-1-x][y],          // flip horiz
+  //allColours[height-1-y][width-1-x], // flip horiz, rotate 90 clockwise
+  allColours[x][height-1-y],         // flip horiz, rotate 180 clockwise
+  allColours[y][x]                   // flip horiz, rotate 270 clockwise
 ];
 
 const sorter = attributeSorter(["s", "h", "v"]);

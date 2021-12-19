@@ -1,4 +1,9 @@
-const { attributeSorter, collectColours, emptyData, loadImg } = require("./tools");
+const {
+  attributeSorter,
+  collectColours,
+  emptyData,
+  loadImg
+} = require("./tools");
 
 const img = emptyData();
 const { width, height } = img;
@@ -8,15 +13,23 @@ const allColours = collectColours({
 });
 
 const pair = (x, y) => [
-  allColours[x][y],                  // original
-  allColours[y][width-1-x],          // rotate 90 clockwise
-  allColours[width-1-x][height-1-y], // rotate 180 clockwise
-  allColours[height-1-y][x],         // rotate 270 clockwise
+  // original
+  allColours[x][y],
+  // rotate 90 clockwise
+  allColours[y][width - 1 - x],
+  // rotate 180 clockwise
+  allColours[width - 1 - x][height - 1 - y],
+  // rotate 270 clockwise
+  allColours[height - 1 - y][x],
 
-  allColours[width-1-x][y],          // flip horiz
-  //allColours[height-1-y][width-1-x], // flip horiz, rotate 90 clockwise
-  allColours[x][height-1-y],         // flip horiz, rotate 180 clockwise
-  allColours[y][x]                   // flip horiz, rotate 270 clockwise
+  // flip horizontal
+  allColours[width - 1 - x][y],
+  // flip horizontal, rotate 90 clockwise
+  //allColours[height-1-y][width-1-x],
+  // flip horizontal, rotate 180 clockwise
+  allColours[x][height - 1 - y],
+  // flip horizontal, rotate 270 clockwise
+  allColours[y][x]
 ];
 
 const sorter = attributeSorter(["s", "h", "v"]);

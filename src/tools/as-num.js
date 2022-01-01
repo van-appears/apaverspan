@@ -1,5 +1,7 @@
 const path = require("path");
-const fileNameRegex = new RegExp(`.*${path.sep}(\\d{4})-(\\d{2})-(\\d{2}).js`);
+const fileNameRegex = new RegExp(
+  `.*${path.sep}(\\d{4})-(\\d{2})-(\\d{2}).*.js`
+);
 
 function parse(fullPath) {
   const parsed = fileNameRegex.exec(fullPath);

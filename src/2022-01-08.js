@@ -7,14 +7,14 @@ const sourceCols = collectColours({
   img: loadImg("shell1.png"),
   xlimit: width,
   ylimit: height,
-  mode: "row"
+  mode: "column"
 });
 
-for (let y = 0; y < height; y++) {
-  for (x = 0; x < width; x++) {
-    const col1 = sourceCols[width - 1 - x][y];
-    const col2 = sourceCols[height - 1 - y][width - 1 - x];
-    const col3 = sourceCols[y][x];
+for (let x = 0; x < width; x++) {
+  for (let y = 0; y < height; y++) {
+    const col1 = sourceCols[y][width - 1 - x];
+    const col2 = sourceCols[width - 1 - x][height - 1 - y];
+    const col3 = sourceCols[x][y];
 
     const [r, g, b] = convert.hsv.rgb.raw(col1.h, col2.v, col3.s);
     img.set(x, y, { r, g, b });

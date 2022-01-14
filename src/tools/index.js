@@ -8,5 +8,6 @@ module.exports = {
   fillCircle: require("./fill-circle"),
   fillRect: require("./fill-rect"),
   loadImg: require("./load-img"),
-  random: require("./random")
+  random: require("./random"),
+  setImg: require("./set-img")
 };

@@ -17,9 +17,7 @@ const draw = drawRandomLine({ rnd, img, length: 150 });
 setImg({
   img,
   file: "shell1.png",
-  remap: (x, y) => {
-    return { x: (x + x + y) % width, y };
-  }
+  remap: (x, y) => ({ x: (x + x + y) % width, y })
 });
 
 collectColours({ img })

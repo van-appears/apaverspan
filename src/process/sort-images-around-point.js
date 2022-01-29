@@ -20,7 +20,7 @@ module.exports = function (opts) {
     .fill(0)
     .map((_, i) => indexAsPoint(i))
     .sort((a, b) => a.d - b.d)
-    .forEach(({x, y}, i) => {
+    .forEach(({ x, y }, i) => {
       img.set(x, y, allCols[i]);
     });
 };

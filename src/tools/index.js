@@ -4,6 +4,7 @@ module.exports = {
   codeLetters: require("./code-letters"),
   collectColours: require("./collect-colours"),
   colours: require("./colours"),
+  drawLine: require("./draw-line"),
   emptyData: require("./empty-data"),
   fillCircle: require("./fill-circle"),
   fillRect: require("./fill-rect"),

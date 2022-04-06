@@ -20,5 +20,5 @@ const {
     img
   });
 
-  img.writeOut(__filename, i+1);
+  img.writeOut(__filename, i + 1);
 });

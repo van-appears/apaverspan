@@ -3,11 +3,11 @@ const mixer = colours.mix(0.9, 0.1);
 const TWO_PI = Math.PI * 2.0;
 const HALF_PI = Math.PI / 2.0;
 const DIST = 10.0;
-const WIDTHS = [ 0, -1, 1, -2, 2 ];
+const WIDTHS = [0, -1, 1, -2, 2];
 
 const MOVE = ({ x, y, radian, lineWidth }) => ({
-  newX: x + ((DIST + lineWidth) * Math.sin(radian)),
-  newY: y + ((DIST + lineWidth) * Math.cos(radian))
+  newX: x + (DIST + lineWidth) * Math.sin(radian),
+  newY: y + (DIST + lineWidth) * Math.cos(radian)
 });
 
 const DOUBLE_MOVE = ({ x, y, ...others }) => {
@@ -45,7 +45,10 @@ const DOWN = ({ x, y, lineWidth }) => ({ newX: x, newY: y + DIST + lineWidth });
 
 const LEFT = ({ x, y, lineWidth }) => ({ newX: x - DIST - lineWidth, newY: y });
 
-const RIGHT = ({ x, y, lineWidth }) => ({ newX: x + DIST + lineWidth, newY: y });
+const RIGHT = ({ x, y, lineWidth }) => ({
+  newX: x + DIST + lineWidth,
+  newY: y
+});
 
 const INCREASE_WIDTH = ({ lineWidth }) => {
   return { newLineWidth: Math.min(lineWidth + 1, WIDTHS.length) };
@@ -98,13 +101,15 @@ const run = function ({
   let col = source.get(x, y);
 
   data.forEach(item => {
-    const instruction = instructions[Math.floor(mapCol(item)) % instructions.length];
+    const instruction =
+      instructions[Math.floor(mapCol(item)) % instructions.length];
     const input = { x, y, radian, col, source, lineWidth };
     let { newX, newY, newRadian, newCol, newLineWidth } = instruction(input);
 
     if (newX !== undefined && newY !== undefined) {
-      let copyX = newX, copyY = newY;
-      for (let w=0; w<lineWidth; w++) {
+      let copyX = newX,
+        copyY = newY;
+      for (let w = 0; w < lineWidth; w++) {
         const offsetX = WIDTHS[w] * Math.sin(radian + HALF_PI);
         const offsetY = WIDTHS[w] * Math.cos(radian + HALF_PI);
         line(x + offsetX, y + offsetY, newX + offsetX, newY + offsetY, col);
@@ -129,7 +134,7 @@ const run = function ({
         y = newY;
       }
 
-      for (let w=0; w<lineWidth; w++) {
+      for (let w = 0; w < lineWidth; w++) {
         const offsetX = WIDTHS[w] * Math.sin(radian + HALF_PI);
         const offsetY = WIDTHS[w] * Math.cos(radian + HALF_PI);
         line(x + offsetX, y + offsetY, copyX + offsetX, copyY + offsetY, col);
@@ -149,6 +154,7 @@ const run = function ({
 };
 
 module.exports = {
+  DIST,
   TURN_CLOCKWISE,
   DOUBLE_TURN_CLOCKWISE,
   TURN_ANTICLOCKWISE,
@@ -164,4 +170,3 @@ module.exports = {
   MIX_COL,
   run
 };
-

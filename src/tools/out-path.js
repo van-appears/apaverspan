@@ -1,17 +1,16 @@
 const fs = require("fs");
 const path = require("path");
-const { OUTPUT_DIR } = require("./constants");
-const fileNameRegex = new RegExp(`.*${path.sep}(.*)\.js`);
+const fileNameRegex = new RegExp(`(.*)${path.sep}(.*)\.js`);
 
-function ensureOutputDirectory() {
-  if (!fs.existsSync(OUTPUT_DIR)) {
-    fs.mkdirSync(OUTPUT_DIR);
+function ensureOutputDirectory(outputDir) {
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir);
   }
-  return OUTPUT_DIR;
 }
 
 module.exports = function (srcFilename, extension) {
-  const outputDir = ensureOutputDirectory();
-  const nameWithoutExt = fileNameRegex.exec(srcFilename)[1];
+  const [ , base, nameWithoutExt ] = fileNameRegex.exec(srcFilename);
+  const outputDir = path.join(base, "..", "out");
+  ensureOutputDirectory(outputDir);
   return path.join(outputDir, `${nameWithoutExt}${extension}`);
 };

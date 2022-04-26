@@ -11,7 +11,8 @@
     "images"
   ],
   "scripts": {
-    "prettier": "node_modules/.bin/prettier --write src/**"
+    "start": "node run-all",
+    "prettier": "prettier --write src/**"
   },
   "author": "Van Appears",
   "license": "MIT",

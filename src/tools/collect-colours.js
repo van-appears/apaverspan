@@ -1,8 +1,11 @@
 const convert = require("color-convert");
+const loadImg = require("./load-img");
 
 module.exports = function (opts) {
-  const { img, xlimit, ylimit, mode } = opts;
-  let { width, height } = img;
+  const { img, file, xlimit, ylimit, mode } = opts;
+  const source = img || loadImg(file);
+
+  let { width, height } = source;
   if (xlimit) {
     width = xlimit;
   }
@@ -11,7 +14,7 @@ module.exports = function (opts) {
   }
 
   function getColourObj(x, y) {
-    const col = img.get(x, y);
+    const col = source.get(x, y);
     const [h, s, v] = convert.rgb.hsv.raw(col.r, col.g, col.b);
     return { x, y, ...col, h, s, v };
   }

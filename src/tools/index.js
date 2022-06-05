@@ -10,6 +10,7 @@ module.exports = {
   fillCircle: require("./fill-circle"),
   fillRect: require("./fill-rect"),
   loadImg: require("./load-img"),
+  quadrantZoom: require("./quadrant-zoom"),
   random: require("./random"),
   setImg: require("./set-img"),
   zoomIn: require("./zoom-in")

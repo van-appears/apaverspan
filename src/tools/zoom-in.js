@@ -4,7 +4,12 @@ const emptyData = require("./empty-data");
 const beforeAfter = val => {
   const before = Math.floor(val);
   const after = Math.ceil(val);
-  return [before, after, after - val, val - before];
+  return [
+    before,
+    after,
+    after === before ? 1 : after - val,
+    after === before ? 0 : val - before
+  ];
 };
 
 const roughInterpolater = (source, useX, useY) => {

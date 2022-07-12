@@ -21,7 +21,7 @@ for (let y = 0; y < width; y++) {
   const row = sourceColourRows[y];
   row.sort(sorter);
   let counter = 0;
-  for (x = 0; x < half; x++) {
+  for (let x = 0; x < half; x++) {
     img.set(x, y, row[counter++]);
     img.set(width - 1 - x, y, row[counter++]);
   }

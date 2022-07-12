@@ -18,7 +18,7 @@ function processor(stillToProcess) {
 
 const srcDir =
   process.argv.length > 2 ? process.argv[2] : path.join(".", "src");
-const dateProcess = new RegExp(`[0-9]{4}-[0-9]{2}-[0-9]{2}.?\.js`);
+const dateProcess = new RegExp(`[0-9]{4}-[0-9]{2}-[0-9]{2}.?\\.js`);
 const processFiles = fs
   .readdirSync(srcDir)
   .filter(x => dateProcess.test(x))

@@ -9,7 +9,7 @@ const sourceCols = collectColours({
 });
 
 for (let y = 0; y < height; y++) {
-  for (x = 0; x < width; x++) {
+  for (let x = 0; x < width; x++) {
     const col1 = sourceCols[y][x];
     const col2 = sourceCols[width - 1 - x][y];
     const col3 = sourceCols[height - 1 - y][width - 1 - x];

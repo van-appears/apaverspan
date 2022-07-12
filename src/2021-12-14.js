@@ -33,7 +33,7 @@ const pair = (x, y) => [
 ];
 
 const sorter = attributeSorter(["s", "h", "v"]);
-for (x = 0; x < width; x++) {
+for (let x = 0; x < width; x++) {
   for (let y = 0; y < height; y++) {
     const keep = pair(x, y).sort(sorter)[0];
     img.set(x, y, keep);

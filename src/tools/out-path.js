@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const fileNameRegex = new RegExp(`(.*)${path.sep}(.*)\.js`);
+const fileNameRegex = new RegExp(`(.*)${path.sep}(.*)\\.js`);
 
 function ensureOutputDirectory(outputDir) {
   if (!fs.existsSync(outputDir)) {

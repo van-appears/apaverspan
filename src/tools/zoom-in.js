@@ -1,4 +1,3 @@
-const constants = require("./constants");
 const emptyData = require("./empty-data");
 
 const beforeAfter = val => {

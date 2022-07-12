@@ -16,7 +16,7 @@ const allColours = collectColours({
 
 const pair = (x, y) => [allColours[x][height - 1 - y], allColours[y][x]];
 
-for (x = 0; x < width; x++) {
+for (let x = 0; x < width; x++) {
   for (let y = 0; y < height; y++) {
     const keep = pair(x, y).sort(sorter)[0];
     img.set(x, y, keep);

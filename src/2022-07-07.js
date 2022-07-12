@@ -1,7 +1,6 @@
-const { collectColours, drawLine, emptyData } = require("./tools");
+const { collectColours, emptyData } = require("./tools");
 
 const img = emptyData();
-const { width, height } = img;
 const vsMap = collectColours({ file: "trees1.png" }).reduce((acc, col) => {
   const { s, v } = col;
   const key = `${v}_${s}`;

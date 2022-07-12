@@ -12,7 +12,7 @@ const hsv = (source, x, y) => {
 };
 
 for (let y = 0; y < height; y++) {
-  for (x = 0; x < width; x++) {
+  for (let x = 0; x < width; x++) {
     const [h] = hsv(source1, x, y);
     const [, , v] = hsv(source2, x, y);
     const [r, g, b] = convert.hsv.rgb.raw(h, 100, v);

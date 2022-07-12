@@ -1,7 +1,6 @@
-const { collectColours, drawLine, emptyData } = require("./tools");
+const { collectColours, emptyData } = require("./tools");
 
 const img = emptyData();
-const { width, height } = img;
 const hsMap = collectColours({ file: "flowers1.png" }).reduce((acc, col) => {
   const { h, s } = col;
   const key = `${h}_${s}`;

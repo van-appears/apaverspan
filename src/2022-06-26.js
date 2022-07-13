@@ -1,7 +1,6 @@
 const {
   asNum,
   attributeSorter,
-  colours,
   emptyData,
   loadImg,
   partialRotate,
@@ -10,7 +9,7 @@ const {
 const convert = require("color-convert");
 
 const rnd = random(asNum(__filename));
-const getDiffs = () => new Array(4).fill(0).map(_ => rnd.val(30) - 15);
+const getDiffs = () => new Array(4).fill(0).map(() => rnd.val(30) - 15);
 const sorter = attributeSorter(["v", "s", "h"], true);
 
 const sets = [

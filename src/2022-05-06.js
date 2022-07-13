@@ -8,12 +8,11 @@ const img = emptyData();
 
 ["flowers1.png", "shell1.png"].forEach((file, i) => {
   const source = loadImg(file);
-  const { height, width } = img;
   const allColours = collectColours({ img: source }).sort(
     attributeSorter(["h", "v", "s"])
   );
 
-  const mappedColours = allColours
+  allColours
     .map(({ x, y }, i) => {
       const moved = allColours[(i + 500000) % allColours.length];
       return { ...moved, x, y };

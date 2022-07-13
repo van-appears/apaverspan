@@ -1,7 +1,6 @@
 const { emptyData, loadImg, collectColours } = require("./tools");
 
 const img = emptyData();
-const { width, height } = img;
 const sourceCols = collectColours({
   img: loadImg("flowers1.png")
 });

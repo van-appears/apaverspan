@@ -18,7 +18,7 @@ const {
     const line = drawLine(img);
 
     const fill = (x, y, col) => {
-      endCol = source.get(x, height - 1);
+      const endCol = source.get(x, height - 1);
       for (let i = -10; i < 11; i++) {
         line(x + i, y, x + i, height - 1, col, endCol);
       }

@@ -5,7 +5,6 @@ const {
   collectColours
 } = require("./tools");
 const img = emptyData();
-const { height, width } = img;
 
 ["location1.png", "trees1.png", "shell1.png"].forEach((file, i) => {
   const source = loadImg(file);

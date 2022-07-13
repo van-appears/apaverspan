@@ -92,8 +92,6 @@ const run = function ({
 }) {
   const { width, height } = img;
   const line = drawLine(img);
-  const wrapX = xx => (xx < 0 ? xx + width : xx > width ? xx - width : xx);
-  const wrapY = yy => (yy < 0 ? yy + height : yy > height ? yy - height : yy);
   let lineWidth = initialWidth;
   let x = startx !== undefined ? startx : width / 2;
   let y = starty !== undefined ? starty : height - 1;

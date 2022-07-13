@@ -1,4 +1,4 @@
-const { collectColours, colours, emptyData, loadImg } = require("./tools");
+const { collectColours, emptyData, loadImg } = require("./tools");
 const {
   TURN_CLOCKWISE,
   MOVE,

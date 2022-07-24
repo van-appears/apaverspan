@@ -14,5 +14,6 @@ module.exports = {
   quadrantZoom: require("./quadrant-zoom"),
   random: require("./random"),
   setImg: require("./set-img"),
+  wrapPosition: require("./wrap-position"),
   zoomIn: require("./zoom-in")
 };

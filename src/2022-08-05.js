@@ -42,8 +42,9 @@ const edge = (source, size) => {
   return target;
 };
 
-const img1 = clockwise270(edge(edge(loadImg("shell1.png"), 14), 3));
+const img1 = clockwise270(edge(edge(edge(loadImg("shell1.png"), 25), 14), 3));
 img1.writeOut(__filename, 1);
 
 const img2 = clockwise180(edge(edge(edge(loadImg("flowers2.png"), 19), 11), 3));
 img2.writeOut(__filename, 2);
+

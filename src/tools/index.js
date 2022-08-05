@@ -13,6 +13,7 @@ module.exports = {
   partialRotate: require("./partial-rotate"),
   quadrantZoom: require("./quadrant-zoom"),
   random: require("./random"),
+  rotations: require("./rotations"),
   setImg: require("./set-img"),
   wrapPosition: require("./wrap-position"),
   zoomIn: require("./zoom-in")

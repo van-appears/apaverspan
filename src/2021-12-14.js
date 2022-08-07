@@ -2,40 +2,37 @@ const {
   attributeSorter,
   collectColours,
   emptyData,
-  loadImg
+  loadImg,
+  rotations
 } = require("./tools");
 
 const img = emptyData();
 const { width, height } = img;
+const remap = rotations.remap(img);
 const allColours = collectColours({
   img: loadImg("flowers1.png"),
   mode: "column"
 });
 
-const pair = (x, y) => [
-  // original
-  allColours[x][y],
-  // rotate 90 clockwise
-  allColours[y][width - 1 - x],
-  // rotate 180 clockwise
-  allColours[width - 1 - x][height - 1 - y],
-  // rotate 270 clockwise
-  allColours[height - 1 - y][x],
+const getColour = (remapFn, x, y) => {
+  const pixel = remapFn(x, y);
+  return allColours[pixel.x][pixel.y];
+};
 
-  // flip horizontal
-  allColours[width - 1 - x][y],
-  // flip horizontal, rotate 90 clockwise
-  //allColours[height-1-y][width-1-x],
-  // flip horizontal, rotate 180 clockwise
-  allColours[x][height - 1 - y],
-  // flip horizontal, rotate 270 clockwise
-  allColours[y][x]
+const group = (x, y) => [
+  allColours[x][y],
+  getColour(remap.clockwise90, x, y),
+  getColour(remap.clockwise180, x, y),
+  getColour(remap.clockwise270, x, y),
+  getColour(remap.flipHorizontal, x, y),
+  getColour(remap.clockwise90FlipHorizontal, x, y),
+  getColour(remap.clockwise180FlipHorizontal, x, y)
 ];
 
 const sorter = attributeSorter(["s", "h", "v"]);
 for (let x = 0; x < width; x++) {
   for (let y = 0; y < height; y++) {
-    const keep = pair(x, y).sort(sorter)[0];
+    const keep = group(x, y).sort(sorter)[0];
     img.set(x, y, keep);
   }
 }

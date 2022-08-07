@@ -47,4 +47,3 @@ img1.writeOut(__filename, 1);
 
 const img2 = clockwise180(edge(edge(edge(loadImg("flowers2.png"), 19), 11), 3));
 img2.writeOut(__filename, 2);
-

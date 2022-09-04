@@ -1,13 +1,11 @@
-const { collectColours, emptyData } = require("./tools");
+const { emptyData } = require("./tools");
+const collectGroupedColours = require("./process/collect-grouped-colours");
 
 const img = emptyData();
-const hsMap = collectColours({ file: "flowers1.png" }).reduce((acc, col) => {
-  const { h, s } = col;
-  const key = `${h}_${s}`;
-  const collected = (acc[key] = acc[key] || []);
-  collected.push(col);
-  return acc;
-}, {});
+const hsMap = collectGroupedColours({
+  file: "flowers1.png",
+  attributes: ["h", "s"]
+});
 
 Object.values(hsMap).forEach(colGroup => {
   const len = colGroup.length;

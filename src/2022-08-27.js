@@ -1,15 +1,9 @@
-const { collectColours, loadImg, zoomIn } = require("./tools");
+const { loadImg, zoomIn } = require("./tools");
+const collectGroupedColours = require("./process/collect-grouped-colours");
 const convert = require("color-convert");
 
 const img = loadImg("flowers3.png");
-
-const hsMap = collectColours({ img }).reduce((acc, col) => {
-  const { h, s } = col;
-  const key = `${h}_${s}`;
-  const collected = (acc[key] = acc[key] || []);
-  collected.push(col);
-  return acc;
-}, {});
+const hsMap = collectGroupedColours({ img, attributes: ["h", "s"] });
 
 Object.values(hsMap).forEach(colGroup => {
   const len = colGroup.length;

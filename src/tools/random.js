@@ -12,6 +12,14 @@ module.exports = function (seed) {
     },
     val(scale = 1) {
       return scale * prng();
+    },
+    shuffle(list) {
+      list.forEach((x, i) => {
+        const pos = Math.floor(prng() * list.length);
+        const val = list[pos];
+        list[pos] = x;
+        list[i] = val;
+      });
     }
   };
 };

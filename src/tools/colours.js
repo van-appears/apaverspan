@@ -22,6 +22,17 @@ function mix() {
   return mixer(arguments[2], arguments[3])(arguments[0], arguments[1]);
 }
 
+function replaceAll(img, col, replaceCol) {
+  const { width, height } = img;
+  for (let x = 0; x < width; x++) {
+    for (let y = 0; y < height; y++) {
+      if (equals(col, img.get(x, y))) {
+        img.set(x, y, replaceCol);
+      }
+    }
+  }
+}
+
 const colours = {
   RED: { r: 255, g: 0, b: 0 },
   YELLOW: { r: 255, g: 255, b: 0 },
@@ -42,5 +53,6 @@ Object.keys(colours).forEach(key => {
 module.exports = {
   ...colours,
   equals,
-  mix
+  mix,
+  replaceAll
 };

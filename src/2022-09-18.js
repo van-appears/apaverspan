@@ -4,7 +4,6 @@ const findEmptyLocationOnPath = require("./process/find-empty-location-on-path")
 const { BLACK, MAGENTA, replaceAll } = colours;
 
 const img = emptyData(MAGENTA);
-const { width, height } = img;
 const sMap = collectGroupedColours({ file: "flowers3.png", attributes: ["s"] });
 const findEmptyLocation = findEmptyLocationOnPath(img, MAGENTA);
 

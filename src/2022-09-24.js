@@ -2,22 +2,17 @@ const { constants, emptyData, loadImg, quadrantZoom } = require("./tools");
 
 const img = emptyData();
 const { width, height } = img;
+const dataR = new Array(width * height).fill("");
+const dataG = new Array(width * height).fill("");
+const dataB = new Array(width * height).fill("");
+const asIndex = (x, y) => y * height + x;
+
 const round = val => (val >> 2) << 2;
-
-const dataR = new Array(width * height);
-const dataG = new Array(width * height);
-const dataB = new Array(width * height);
-for (let index = 0; index < dataR.length; index++) {
-  dataR[index] = "";
-  dataG[index] = "";
-  dataB[index] = "";
-}
-
 constants.ALL_FILES.forEach(f => {
   const source = loadImg(f);
   for (let x = 0; x < width; x++) {
     for (let y = 0; y < height; y++) {
-      const index = y * height + x;
+      const index = asIndex(x, y);
       const { r, g, b } = source.get(x, y);
       dataR[index] += `${round(r)}_`;
       dataG[index] += `${round(g)}_`;
@@ -42,19 +37,15 @@ const simplifyStr = str => {
     : 0;
 };
 
-const simplify = (r, g, b) => {
-  return {
-    r: simplifyStr(r),
-    g: simplifyStr(g),
-    b: simplifyStr(b)
-  };
-};
+const simplify = index => ({
+  r: simplifyStr(dataR[index]),
+  g: simplifyStr(dataG[index]),
+  b: simplifyStr(dataB[index])
+});
 
 for (let x = 0; x < width; x++) {
   for (let y = 0; y < height; y++) {
-    const index = y * height + x;
-    const col = simplify(dataR[index], dataG[index], dataB[index]);
-    img.set(x, y, col);
+    img.set(x, y, simplify(asIndex(x, y)));
   }
 }
 

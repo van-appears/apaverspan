@@ -20,6 +20,13 @@ module.exports = function (seed) {
         list[pos] = x;
         list[i] = val;
       });
+    },
+    rndCol() {
+      return {
+        r: Math.floor(prng() * 256),
+        g: Math.floor(prng() * 256),
+        b: Math.floor(prng() * 256)
+      };
     }
   };
 };

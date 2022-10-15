@@ -13,16 +13,27 @@ const gradient = (from, to, length) => {
 };
 
 module.exports = function (img) {
-  const drawLine = (fromX, fromY, toX, toY, colour1, colour2) => {
+  const drawLine = (fromX, fromY, toX, toY, colour1OrFn, colour2) => {
     const lengthX = Math.abs(fromX - toX);
     const lengthY = Math.abs(fromY - toY);
     const useLength = Math.max(lengthX, lengthY);
     const x = scaler(fromX, toX, useLength);
     const y = scaler(fromY, toY, useLength);
-    const c = colour2 ? gradient(colour1, colour2, useLength) : () => colour1;
-
-    for (let index = 0; index <= useLength; index++) {
-      img.set(x(index), y(index), c(index));
+    if (typeof colour1OrFn === "function") {
+      for (let index = 0; index <= useLength; index++) {
+        const iX = x(index);
+        const iY = y(index);
+        img.set(iX, iY, colour1OrFn(img.get(iX, iY), iX, iY));
+      }
+    } else if (colour2) {
+      const c = gradient(colour1OrFn, colour2, useLength);
+      for (let index = 0; index <= useLength; index++) {
+        img.set(x(index), y(index), c(index));
+      }
+    } else {
+      for (let index = 0; index <= useLength; index++) {
+        img.set(x(index), y(index), colour1OrFn);
+      }
     }
   };
   if (arguments.length === 1) {

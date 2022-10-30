@@ -8,6 +8,7 @@ module.exports = {
   drawLine: require("./draw-line"),
   emptyData: require("./empty-data"),
   fillCircle: require("./fill-circle"),
+  fillDirection: require("./fill-direction"),
   fillRect: require("./fill-rect"),
   loadImg: require("./load-img"),
   partialRotate: require("./partial-rotate"),

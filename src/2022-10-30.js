@@ -1,4 +1,6 @@
-const { asNum, emptyData, fillDirection, loadImg, random } = require("./tools");
+const { asNum, emptyData, loadImg, random } = require("./tools");
+const fillDirectionRadian = require("./process/fill-direction-radian");
+
 const { val } = random(asNum(__filename));
 const FULL_ROT = Math.PI * 2;
 const QUARTER_ROT = Math.PI / 2;
@@ -37,7 +39,7 @@ files.forEach((file, i) => {
 
     col = source.get(radX, radY);
     if (col) {
-      fillDirection(x1, y1, x2, y2, radian, colourFn);
+      fillDirection(x1, y1, x2, y2, radian, col);
     }
   }
 

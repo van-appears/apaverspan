@@ -9,7 +9,7 @@ files.forEach((file, i) => {
   const source = loadImg(file);
   const { width, height } = source;
   const img = emptyData(source.get(width / 2, height / 2));
-  const { fillLeft, fillRight, fillTop, fillBottom } = fillDirection(img);
+  const fillDirection = fillDirectionRadian(img);
 
   const extend = (centreX, centreY, adjust) => {
     let newX = centreX;
@@ -30,22 +30,14 @@ files.forEach((file, i) => {
       dist += 100;
     }
 
-    let radX = width / 2 + dist * Math.sin(radian);
-    let radY = height / 2 + dist * Math.cos(radian);
-    let { x: x1, y: y1 } = extend(radX, radY, QUARTER_ROT);
-    let { x: x2, y: y2 } = extend(radX, radY, -QUARTER_ROT);
+    const radX = width / 2 + dist * Math.sin(radian);
+    const radY = height / 2 + dist * Math.cos(radian);
+    const { x: x1, y: y1 } = extend(radX, radY, QUARTER_ROT);
+    const { x: x2, y: y2 } = extend(radX, radY, -QUARTER_ROT);
 
     col = source.get(radX, radY);
     if (col) {
-      if (radian > QUARTER_ROT * 2.5 && radian < QUARTER_ROT * 3.5) {
-        fillLeft(x1, y1, x2, y2, col);
-      } else if (radian > QUARTER_ROT * 1.5 && radian < QUARTER_ROT * 2.5) {
-        fillTop(x1, y1, x2, y2, col);
-      } else if (radian > QUARTER_ROT * 0.5 && radian < QUARTER_ROT * 1.5) {
-        fillRight(x1, y1, x2, y2, col);
-      } else {
-        fillBottom(x1, y1, x2, y2, col);
-      }
+      fillDirection(x1, y1, x2, y2, radian, colourFn);
     }
   }
 

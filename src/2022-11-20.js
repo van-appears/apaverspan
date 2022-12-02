@@ -14,7 +14,7 @@ sourceCols.forEach(sourceCol => {
   const { x, y, h, s, v } = sourceCol;
   const newx = x + Math.floor(2 * h * sin(v));
   const newy = y + Math.floor(2 * h * cos(v));
-  const [r, g, b] = convert.hsv.rgb.raw(h + s % 360, s, v);
+  const [r, g, b] = convert.hsv.rgb.raw(h + (s % 360), s, v);
   img.set(newx, newy, { r, g, b });
 });
 

@@ -8,7 +8,7 @@ const {
   random
 } = require("./tools");
 
-const { int, bool, val } = random(asNum(__filename));
+const { int, val } = random(asNum(__filename));
 const source = loadImg("location1.png");
 
 [0.666, 0.333].forEach((ratio, i) => {

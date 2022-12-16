@@ -33,6 +33,20 @@ function replaceAll(img, col, replaceCol) {
   }
 }
 
+function avg(...cols) {
+  const sum = cols.reduce(
+    (acc, { r, g, b }) => {
+      acc.r += r;
+      acc.g += g;
+      acc.b += b;
+      return acc;
+    },
+    { r: 0, g: 0, b: 0 }
+  );
+  const avgv = val => Math.round(val / cols.length);
+  return { r: avgv(sum.r), g: avgv(sum.g), b: avgv(sum.b) };
+}
+
 const colours = {
   RED: { r: 255, g: 0, b: 0 },
   YELLOW: { r: 255, g: 255, b: 0 },
@@ -54,5 +68,6 @@ module.exports = {
   ...colours,
   equals,
   mix,
+  avg,
   replaceAll
 };

@@ -21,6 +21,9 @@ module.exports = function (seed) {
         list[i] = val;
       });
     },
+    rndBoolean() {
+      return prng() < 0.5;
+    },
     rndCol() {
       return {
         r: Math.floor(prng() * 256),

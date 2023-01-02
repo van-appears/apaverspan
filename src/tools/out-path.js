@@ -9,8 +9,8 @@ function ensureOutputDirectory(outputDir) {
 }
 
 module.exports = function (srcFilename, extension) {
-  const [, base, nameWithoutExt] = fileNameRegex.exec(srcFilename);
-  const outputDir = path.join(base, "..", "out");
+  const [, , nameWithoutExt] = fileNameRegex.exec(srcFilename);
+  const outputDir = path.join(__dirname, "..", "..", "out");
   ensureOutputDirectory(outputDir);
   return path.join(outputDir, `${nameWithoutExt}${extension}`);
 };

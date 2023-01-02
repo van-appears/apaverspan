@@ -1,14 +1,19 @@
 const Alea = require("alea");
+const asNum = require("./as-num");
 
 module.exports = function (seed) {
-  const prng = new Alea(seed);
+  const prng = new Alea(typeof seed === "number" ? seed : asNum(seed));
+
+  const item = function (arr) {
+    const index = Math.floor(prng() * arr.length);
+    return arr[index];
+  };
+
   return {
+    item,
+    rndItem: item,
     int(from) {
       return Math.floor(prng() * (Array.isArray(from) ? from.length : from));
-    },
-    item(arr) {
-      const index = Math.floor(prng() * arr.length);
-      return arr[index];
     },
     val(scale = 1) {
       return scale * prng();

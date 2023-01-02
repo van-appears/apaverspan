@@ -1,5 +1,5 @@
-const { asNum, colours, emptyData, fillRect, random } = require("./tools");
-const rnd = random(asNum(__filename));
+const { colours, emptyData, fillRect, random } = require("../tools");
+const rnd = random(__filename);
 const { YELLOW, BLACK, mix } = colours;
 const BRICK_HEIGHT = 20;
 const mixer = mix(3, 1);

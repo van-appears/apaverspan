@@ -13,7 +13,7 @@ function parse(fullPath) {
 
 function asNum(fullPath) {
   const { y, m, d } = parse(fullPath);
-  return y * 1000000 + m * 100 + d;
+  return parseInt(y) * 10000 + parseInt(m) * 100 + parseInt(d);
 }
 asNum.year = function (fullPath) {
   const { y } = parse(fullPath);

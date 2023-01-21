@@ -2,15 +2,14 @@ const {
   attributeSorter,
   emptyData,
   fillCircle,
-  loadImg,
   collectColours
-} = require("./tools");
+} = require("../tools");
 
 const img = emptyData();
 const filler = fillCircle(img);
 const { width, height } = img;
 const sourceCols = collectColours({
-  img: loadImg("flowers2.png"),
+  file: "flowers2.png",
   xlimit: width,
   ylimit: height
 });

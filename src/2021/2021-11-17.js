@@ -1,14 +1,9 @@
-const {
-  emptyData,
-  loadImg,
-  collectColours,
-  attributeSorter
-} = require("./tools");
+const { emptyData, collectColours, attributeSorter } = require("../tools");
 
 const img = emptyData();
 const { width, height } = img;
 const sourceColourRows = collectColours({
-  img: loadImg("view1.png"),
+  file: "view1.png",
   xlimit: width,
   ylimit: height,
   mode: "row"

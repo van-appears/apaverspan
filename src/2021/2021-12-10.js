@@ -1,4 +1,4 @@
-const { attributeSorter, emptyData, loadImg } = require("./tools");
+const { attributeSorter, emptyData, loadImg } = require("../tools");
 
 const img = emptyData();
 const { width, height } = img;

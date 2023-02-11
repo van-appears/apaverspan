@@ -1,4 +1,4 @@
-const { emptyData, loadImg } = require("./tools");
+const { emptyData, loadImg } = require("../tools");
 const convert = require("color-convert");
 
 const img = emptyData();

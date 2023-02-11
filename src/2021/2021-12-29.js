@@ -1,8 +1,8 @@
-const { emptyData, loadImg, collectColours } = require("./tools");
+const { emptyData, collectColours } = require("../tools");
 
 const img = emptyData();
 const sourceCols = collectColours({
-  img: loadImg("flowers1.png")
+  file: "flowers1.png"
 });
 
 const degreeToRad = degree => (2 * Math.PI * degree) / 360;

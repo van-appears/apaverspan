@@ -1,16 +1,11 @@
-const {
-  attributeSorter,
-  collectColours,
-  emptyData,
-  loadImg
-} = require("./tools");
+const { attributeSorter, collectColours, emptyData } = require("../tools");
 
 const img = emptyData();
 const { width, height } = img;
 const sorter = attributeSorter(["g", "b", "r"]);
 
 const allColours = collectColours({
-  img: loadImg("trees1.png"),
+  file: "trees1.png",
   mode: "column"
 });
 

@@ -2,15 +2,14 @@ const {
   attributeSorter,
   collectColours,
   emptyData,
-  loadImg,
   rotations
-} = require("./tools");
+} = require("../tools");
 
 const img = emptyData();
 const { width, height } = img;
 const remap = rotations.remap(img);
 const allColours = collectColours({
-  img: loadImg("flowers1.png"),
+  file: "flowers1.png",
   mode: "column"
 });
 

@@ -17,6 +17,7 @@ function asNum(fullPath) {
   let total = parseInt(d);
   total += parseInt(m) * 100;
   total += parseInt(y) * yearMultipler;
+  return total;
 }
 
 asNum.year = function (fullPath) {

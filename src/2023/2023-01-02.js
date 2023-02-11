@@ -1,5 +1,5 @@
-const { asNum, loadImg, random } = require("./tools");
-const { int, item } = random(asNum(__filename));
+const { loadImg, random } = require("../tools");
+const { int, item } = random(__filename);
 const asKey = ({ x, y }) => `${x}_${y}`;
 
 ["flowers4.png", "trees1.png", "flowers1.png"].forEach((file, i) => {

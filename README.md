@@ -7,3 +7,5 @@ Inputs in the 'in' folder. I'm cheating a bit with the image processing code, as
 At some point I may regret not using something with a more complete set of functionality, like p5, but not today.
 
 The output size of 1400x1400 was chosen to match the minimum image size that Bandcamp allows for cover art.
+
+A bug in 'as-num' means that some processes will not generate images that match their previous output. Setting OLD_RANDOM=Y before generation should return the previous output.

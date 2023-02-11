@@ -13,16 +13,22 @@ function parse(fullPath) {
 
 function asNum(fullPath) {
   const { y, m, d } = parse(fullPath);
-  return parseInt(y) * 10000 + parseInt(m) * 100 + parseInt(d);
+  const yearMultipler = process.env.OLD_RANDOM === "Y" ? 1000000 : 10000;
+  let total = parseInt(d);
+  total += parseInt(m) * 100;
+  total += parseInt(y) * yearMultipler;
 }
+
 asNum.year = function (fullPath) {
   const { y } = parse(fullPath);
   return y;
 };
+
 asNum.month = function (fullPath) {
   const { m } = parse(fullPath);
   return m;
 };
+
 asNum.day = function (fullPath) {
   const { d } = parse(fullPath);
   return d;

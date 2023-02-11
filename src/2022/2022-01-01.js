@@ -1,4 +1,4 @@
-const { emptyData, codeLetters, fillCircle } = require("./tools");
+const { emptyData, codeLetters, fillCircle } = require("../tools");
 
 const img = emptyData();
 const { width, height } = img;

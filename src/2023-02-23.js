@@ -2,7 +2,7 @@ const { constants, emptyData, loadImg } = require("./tools");
 
 const TWOPI = 2 * Math.PI;
 const add = (rad, val) => (rad + val / 999) % TWOPI;
-const col = rad => 255 * Math.sin(rad);
+const col = rad => 128 + 127 * Math.sin(rad);
 const files = ["location1.png", "flowers3.png", "trees1.png", "flowers2.png"];
 
 files.forEach((file, i) => {

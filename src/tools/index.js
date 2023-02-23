@@ -5,7 +5,7 @@ module.exports = {
   collectColours: require("./collect-colours"),
   colours: require("./colours"),
   constants: require("./constants"),
-  convert:  require("./convert"),
+  convert: require("./convert"),
   drawLine: require("./draw-line"),
   emptyData: require("./empty-data"),
   fillCircle: require("./fill-circle"),

@@ -1,5 +1,5 @@
-const { asNum, colours, loadImg, random } = require("./tools");
-const { rndBoolean } = random(asNum(__filename));
+const { colours, loadImg, random, rotations } = require("../tools");
+const { rndBoolean } = random(__filename);
 
 const img = rotations.clockwise90(loadImg("flowers2.png"));
 const { width, height } = img;

@@ -1,4 +1,4 @@
-const { colours, loadImg, partialRotate } = require("./tools");
+const { colours, loadImg, partialRotate } = require("../tools");
 
 const mix = (col1, col2, col3) => {
   const first = colours.avg(col2, col3);

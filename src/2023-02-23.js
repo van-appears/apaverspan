@@ -1,4 +1,4 @@
-const { constants, emptyData, loadImg } = require("./tools");
+const { emptyData, loadImg } = require("./tools");
 
 const TWOPI = 2 * Math.PI;
 const add = (rad, val) => (rad + val / 999) % TWOPI;

@@ -1,4 +1,4 @@
-const { colours, emptyData, loadImg, zoomIn } = require("./tools");
+const { colours, loadImg, zoomIn } = require("./tools");
 
 const imgs = new Array(14);
 const img = (imgs[0] = loadImg("trees1.png"));

@@ -1,5 +1,5 @@
-const { attributeSorter, emptyData, loadImg } = require("./tools");
-const processor = require("./process/sort-images-around-point");
+const { attributeSorter, emptyData, loadImg } = require("../tools");
+const processor = require("../process/sort-images-around-point");
 
 ["flowers1.png", "flowers3.png", "flowers4.png", "flowers2.png"].forEach(
   (x, i) => {

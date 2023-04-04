@@ -1,15 +1,14 @@
 const {
-  asNum,
   attributeSorter,
   collectColours,
   emptyData,
   random,
   setImg
-} = require("./tools");
+} = require("../tools");
 
-const drawRandomLine = require("./process/draw-random-line-from-point");
+const drawRandomLine = require("../process/draw-random-line-from-point");
 
-const rnd = random(asNum(__filename));
+const rnd = random(__filename);
 const img = emptyData();
 const { width } = img;
 const draw = drawRandomLine({ rnd, img, length: 150 });

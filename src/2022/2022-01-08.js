@@ -1,5 +1,4 @@
-const { emptyData, loadImg, collectColours } = require("./tools");
-const convert = require("color-convert");
+const { collectColours, convert, emptyData, loadImg } = require("../tools");
 
 const img = emptyData();
 const { width, height } = img;
@@ -16,8 +15,7 @@ for (let x = 0; x < width; x++) {
     const col2 = sourceCols[width - 1 - x][height - 1 - y];
     const col3 = sourceCols[x][y];
 
-    const [r, g, b] = convert.hsv.rgb.raw(col1.h, col2.v, col3.s);
-    img.set(x, y, { r, g, b });
+    img.set(x, y, convert.colFromHsv(col1.h, col2.v, col3.s));
   }
 }
 

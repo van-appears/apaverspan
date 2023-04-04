@@ -1,5 +1,5 @@
-const { attributeSorter, emptyData, loadImg } = require("./tools");
-const processor = require("./process/sort-images-around-point");
+const { attributeSorter, emptyData, loadImg } = require("../tools");
+const processor = require("../process/sort-images-around-point");
 
 const img = emptyData();
 processor({

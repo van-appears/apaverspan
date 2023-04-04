@@ -1,16 +1,15 @@
 const {
-  asNum,
   attributeSorter,
   collectColours,
   emptyData,
   loadImg,
   random,
   setImg
-} = require("./tools");
+} = require("../tools");
 
-const drawRandomLine = require("./process/draw-random-line-from-point");
+const drawRandomLine = require("../process/draw-random-line-from-point");
 
-const rnd = random(asNum(__filename));
+const rnd = random(__filename);
 const img = emptyData();
 const draw = drawRandomLine({ rnd, img, length: 250 });
 const svMapper = ({ s, v }) => 50 - Math.abs(s - 50) + v;

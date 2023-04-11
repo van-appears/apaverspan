@@ -6,6 +6,7 @@ module.exports = {
   colours: require("./colours"),
   constants: require("./constants"),
   convert: require("./convert"),
+  distance: require("./distance"),
   drawLine: require("./draw-line"),
   emptyData: require("./empty-data"),
   fillCircle: require("./fill-circle"),

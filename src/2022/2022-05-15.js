@@ -1,10 +1,8 @@
-const { collectColours, drawLine, emptyData } = require("./tools");
+const { collectColours, distance, drawLine, emptyData } = require("../tools");
 const img = emptyData();
 const line = drawLine(img);
 
 const asKey = ({ r, g, b }) => `${r}_${g}_${b}`;
-const distance = ({ x: x1, y: y1 }, { x: x2, y: y2 }) =>
-  Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2);
 
 const colourGroups = collectColours({ file: "location1.png" }).reduce(
   (acc, col) => {

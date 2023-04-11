@@ -25,7 +25,9 @@ module.exports = function () {
         pixel.g += col.g;
         pixel.b += col.b;
         pixel.c += 1;
-      } catch (e) { /* silent failure */ }
+      } catch (e) {
+        /* silent failure */
+      }
     },
 
     get(x, y) {

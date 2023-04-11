@@ -1,4 +1,4 @@
-const { distance,   loadImg, random } = require("./tools");
+const { distance, loadImg, random } = require("./tools");
 const avgImgData = require("./process/avg-img-data");
 const { rndInt } = random(__filename);
 

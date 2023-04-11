@@ -1,4 +1,4 @@
-const { collectColours } = require("../tools");
+const { collectColours, distance } = require("../tools");
 
 module.exports = function (opts) {
   const { img, colourSorter, sources } = opts;
@@ -8,8 +8,8 @@ module.exports = function (opts) {
   const indexAsPoint = i => {
     const x = Math.floor(i / width);
     const y = i % width;
-    const dist = Math.pow(centreX - x, 2) + Math.pow(centreY - y, 2);
-    return { x, y, d: dist };
+    const d = distance(x, y, centreX, centreY);
+    return { x, y, d };
   };
 
   const allCols = sources

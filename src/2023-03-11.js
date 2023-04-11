@@ -1,4 +1,4 @@
-const { emptyData, loadImg } = require("./tools");
+const { distance, emptyData, loadImg } = require("./tools");
 
 [
   [600, 900],
@@ -15,7 +15,7 @@ const { emptyData, loadImg } = require("./tools");
       distances.push({
         x,
         y,
-        d: Math.pow(x - centreX, 2) + Math.pow(y - centreY, 2)
+        d: distance(x, y, centreX, centreY)
       });
     }
   }

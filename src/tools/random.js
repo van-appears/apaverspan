@@ -9,12 +9,16 @@ module.exports = function (seed) {
     return arr[index];
   };
 
+  const int = function (from) {
+    return Math.floor(prng() * (Array.isArray(from) ? from.length : from));
+  };
+
   return {
     item,
     rndItem: item,
-    int(from) {
-      return Math.floor(prng() * (Array.isArray(from) ? from.length : from));
-    },
+    int,
+    rndInt: int,
+
     val(scale = 1) {
       return scale * prng();
     },

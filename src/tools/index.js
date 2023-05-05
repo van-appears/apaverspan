@@ -1,6 +1,7 @@
 module.exports = {
   asNum: require("./as-num"),
   attributeSorter: require("./attribute-sorter"),
+  buildAnimation: require("./build-animation"),
   codeLetters: require("./code-letters"),
   collectColours: require("./collect-colours"),
   colours: require("./colours"),

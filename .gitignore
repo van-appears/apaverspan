@@ -1,4 +1,5 @@
 out/*.png
+out/*.gif
 **/.DS_Store
 
 # Logs

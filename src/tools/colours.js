@@ -33,8 +33,11 @@ function replaceAll(img, col, replaceCol) {
   }
 }
 
-function avg(...cols) {
-  const sum = cols.reduce(
+function avg(first, ...cols) {
+  const firstBool = typeof first === "boolean";
+  const rounding = firstBool ? first : true;
+  const allCols = firstBool ? cols : [first].concat(cols);
+  const sum = allCols.reduce(
     (acc, { r, g, b }) => {
       acc.r += r;
       acc.g += g;
@@ -43,8 +46,18 @@ function avg(...cols) {
     },
     { r: 0, g: 0, b: 0 }
   );
-  const avgv = val => Math.round(val / cols.length);
+  const avgv = rounding
+    ? val => Math.round(val / allCols.length)
+    : val => val / allCols.length;
   return { r: avgv(sum.r), g: avgv(sum.g), b: avgv(sum.b) };
+}
+
+function invert(col) {
+  return {
+    r: 255 - col.r,
+    g: 255 - col.g,
+    b: 255 - col.b
+  };
 }
 
 const colours = {
@@ -69,5 +82,6 @@ module.exports = {
   equals,
   mix,
   avg,
+  invert,
   replaceAll
 };

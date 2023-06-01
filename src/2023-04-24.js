@@ -3,7 +3,7 @@ const avgImgData = require("./process/avg-img-data");
 const { rndInt } = random(__filename);
 
 const limitColAttr = a => Math.min(255, Math.max(0, a));
-const alter = (col, change, mult=1) => ({
+const alter = (col, change, mult = 1) => ({
   r: limitColAttr(col.r + change.r * mult),
   g: limitColAttr(col.g + change.g * mult),
   b: limitColAttr(col.b + change.b * mult)
@@ -11,7 +11,7 @@ const alter = (col, change, mult=1) => ({
 const colDiff = (col1, col2, dist) => ({
   r: (col2.r - col1.r) / dist,
   g: (col2.g - col1.g) / dist,
-  b: (col2.b - col1.b) / dist,
+  b: (col2.b - col1.b) / dist
 });
 
 const rnd = () => rndInt(31) - 15;
@@ -23,7 +23,7 @@ const src = loadImg("flowers2.png");
   [500, 500],
   [400, 600],
   [900, 300],
-  [600, 400],
+  [600, 400]
 ].forEach(([xo, yo], i) => {
   const img = emptyData();
   const avgImg = avgImgData();
@@ -36,8 +36,8 @@ const src = loadImg("flowers2.png");
     }
   }
 
-  for (let outer=0; outer<points.length-1; outer++) {
-    for (let inner=outer+1; inner<points.length; inner++) {
+  for (let outer = 0; outer < points.length - 1; outer++) {
+    for (let inner = outer + 1; inner < points.length; inner++) {
       const from = points[outer];
       const to = points[inner];
 
@@ -72,8 +72,8 @@ const src = loadImg("flowers2.png");
     }
   }
 
-  for (let x=0; x<width; x++) {
-    for (let y=1; y<height; y++) {
+  for (let x = 0; x < width; x++) {
+    for (let y = 1; y < height; y++) {
       if (avgImg.get(x, y).c === 0) {
         avgImg.set(x, y, avgImg.get(x, y - 1));
       }

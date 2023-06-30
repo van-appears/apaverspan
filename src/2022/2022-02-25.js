@@ -1,10 +1,10 @@
-const { emptyData, loadImg, collectColours, zoomIn } = require("./tools");
+const { emptyData, collectColours, zoomIn } = require("../tools");
 const convert = require("color-convert");
 
 const img = emptyData();
 const { width, height } = img;
 const sourceCols = collectColours({
-  img: loadImg("flowers1.png"),
+  file: "flowers1.png",
   mode: "row"
 });
 

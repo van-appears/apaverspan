@@ -1,4 +1,4 @@
-const { drawLine, emptyData, loadImg, collectColours } = require("./tools");
+const { drawLine, emptyData, loadImg, collectColours } = require("../tools");
 
 const img = emptyData();
 const { width, height } = img;

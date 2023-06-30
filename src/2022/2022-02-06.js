@@ -1,7 +1,7 @@
-const { collectColours, emptyData, loadImg } = require("./tools");
+const { collectColours, emptyData } = require("../tools");
 
 const allColours = collectColours({
-  img: loadImg("flowers4.png"),
+  file: "flowers4.png",
   mode: "column"
 });
 

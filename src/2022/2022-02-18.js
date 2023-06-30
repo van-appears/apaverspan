@@ -4,7 +4,7 @@ const {
   drawLine,
   loadImg,
   collectColours
-} = require("./tools");
+} = require("../tools");
 
 ["shell1.png", "flowers1.png", "location1.png", "flowers2.png"].forEach(
   (input, i) => {

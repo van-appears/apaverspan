@@ -1,4 +1,4 @@
-const { constants, loadImg, emptyData, rotations } = require("./tools");
+const { loadImg, emptyData, rotations } = require("./tools");
 
 [2.0, 0.5].forEach((ratio, i) => {
   let current = loadImg("location1.png");
